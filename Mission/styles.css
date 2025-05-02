@@ -5,6 +5,12 @@ body {
     text-align: center;
 }
 
+/* Dark theme styles */
+body.dark {
+    background-color: #333;
+    color: white;
+}
+
 header h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
