@@ -3,12 +3,18 @@ body {
   background-color: #fff;
   color: #473144;
 }
+header, main, footer {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
 h1, h2 {
   font-family: 'Lora', serif;
   color: #AF1B3F;
 }
-
+.details {
+  text-align: right;
+}
 nav ul {
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -55,7 +61,18 @@ nav ul li a {
   padding: 0.5em;
   z-index: 100;
 }
-
-.skiptocontent a:focus {
-  top: 0;
+.content-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  border-top: 1px solid #ddd;
+  padding-top: 2rem;
 }
+
+.articles {
+  border-right: 1px solid #EFC69B; /* This creates the vertical line */
+  padding-right: 2rem;
+}
+
+
