@@ -1,0 +1,70 @@
+/* Full page container */
+body {
+  border: 1px solid #ccc;
+  padding: 1em;
+}
+
+/* Header including logo + site name */
+header {
+  border: 1px solid #ccc;
+  padding: 1em;
+  text-align: center;
+}
+
+/* Search form */
+#search-form {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+/* Recipe card section */
+article {
+  border: 1px solid #333;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+/* Tag (e.g., dessert) */
+article .tag {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border: 1px solid #000;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+/* Recipe title */
+article h2 {
+  color: var(--primary-color);
+  font-family: var(--secondary-font);
+}
+
+
+/* Ratings */
+.rating {
+  margin-top: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Social icons */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.social img {
+  width: 30px;
+  height: 30px;
+}
+
