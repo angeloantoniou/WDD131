@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieVault</title>
+  <link rel="stylesheet" href="final.css" />
+  <style>
+    .movie-form {
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      max-width: 600px;
+    }
+
+    .movie-form input,
+    .movie-form textarea,
+    .movie-form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+
+    .movie-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem;
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .movie-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .movies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="pics/movietime.png" alt="MovieVault Logo" class="logo" />
+    <h1>MovieVault</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">Movies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Discover Your Next Favorite Movie</h2>
+      <p>MovieVault is your hub for exploring top-rated and trending films. Save your favorites and always come back for more! Our list of movie watchers loves to watch and review movies.</p>
+      
+    </section>
+
+    <section class="movie-form">
+      <h3>Add Your Own Movie</h3>
+      <form id="movieForm">
+        <input type="text" id="title" placeholder="Movie Title" required />
+        <input type="text" id="genre" placeholder="Genre" required />
+        <input type="text" id="year" placeholder="Year" required />
+        <input type="url" id="poster" placeholder="Poster Image URL" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">Add Movie</button>
+      </form>
+    </section>
+
+    <section class="movie-list">
+      <h2>Featured Movies</h2>
+      <div class="movies" id="movieContainer">
+        <!-- Movies appear here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MovieVault | <a href="#">Contact Us</a></p>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">Facebook</a> |
+      <a href="#" aria-label="Twitter">Twitter</a> |
+      <a href="#" aria-label="Instagram">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    const predefinedMovies = [
+      {
+        title: "Inception",
+        genre: "Sci-Fi",
+        year: "2010",
+          poster: "pics/inception.jpg",
+        description: "A skilled thief leads a team into the dream world to steal secrets."
+      },
+      {
+        title: "The Dark Knight",
+        genre: "Action",
+        year: "2008",
+        poster: "pics/dark-knight.jpg",
+        description: "Batman faces the Joker in a battle for Gotham’s soul."
+      },
+      {
+        title: "Interstellar",
+        genre: "Sci-Fi",
+        year: "2014",
+        poster: "pics/interstellar.jpg",
+        description: "Explorers travel through a wormhole to save humanity."
+      },
+      {
+        title: "Dunkirk",
+        genre: "Action",
+        year: "2017",
+        poster: "pics/dunkirk.jpg",
+        description: "A movie about one of the moft important battles from WW2"
+      }
+      
+    ];
+
+    const movieContainer = document.getElementById("movieContainer");
+
+    function createMovieCard(movie) {
+      const movieCard = document.createElement("div");
+      movieCard.classList.add("movie-card");
+
+      movieCard.innerHTML = `
+        <img src="${movie.poster}" alt="${movie.title} Poster" />
+        <h4>${movie.title} (${movie.year})</h4>
+        <p><strong>Genre:</strong> ${movie.genre}</p>
+        <p>${movie.description}</p>
+      `;
+
+      movieContainer.appendChild(movieCard);
+    }
+
+    // Display predefined movies on page load
+    predefinedMovies.forEach(createMovieCard);
+
+    // Handle form submission
+    document.getElementById("movieForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const genre = document.getElementById("genre").value;
+      const year = document.getElementById("year").value;
+      const poster = document.getElementById("poster").value;
+      const description = document.getElementById("description").value;
+
+      const newMovie = { title, genre, year, poster, description };
+      createMovieCard(newMovie);
+
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
+
